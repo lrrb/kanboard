@@ -31,13 +31,15 @@ class ReverseProxy extends Ldap
         return isset($_SERVER[REVERSE_PROXY_USER_HEADER]) ? $_SERVER[REVERSE_PROXY_USER_HEADER] : '';
     }
 
-    /**
-     * Authenticate the user with the HTTP header
+ /**
+     * Authenticate the user
      *
      * @access public
-     * @return bool
+     * @param  string  $username  Username
+     * @param  string  $password  Password
+     * @return boolean
      */
-    public function authenticate()
+    public function authenticate($username, $password)
     {
         if (isset($_SERVER[REVERSE_PROXY_USER_HEADER])) {
             $login = $_SERVER[REVERSE_PROXY_USER_HEADER];
