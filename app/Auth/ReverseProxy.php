@@ -39,7 +39,7 @@ class ReverseProxy extends Ldap
      * @param  string  $password  Password
      * @return boolean
      */
-    public function authenticate($username, $password)
+    public function authenticate($username = null, $password = null)
     {
         if (isset($_SERVER[REVERSE_PROXY_USER_HEADER])) {
             $login = $_SERVER[REVERSE_PROXY_USER_HEADER];
